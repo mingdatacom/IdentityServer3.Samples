@@ -44,8 +44,8 @@ namespace MvcCodeFlowClientManual.Controllers
         {
             var client = new TokenClient(
                 Constants.TokenEndpoint,
-                "codeclient",
-                "secret");
+                "f6c58dfc-ebcc-41eb-b80e-e40e264b5101",
+                "Jg-pqeHSnb6x_9GlYKMz1yXk5Z8M5__GP0QZXH8NnatikAzucQ-euEoJ3r_cbkMc9isUztX2Yri29-KNmxHveQ");
 
             var code = Request.QueryString["code"];
             var tempState = await GetTempStateAsync();
@@ -73,7 +73,7 @@ namespace MvcCodeFlowClientManual.Controllers
         {
             if (!string.IsNullOrWhiteSpace(response.IdentityToken))
             {
-                var tokenClaims = ValidateToken(response.IdentityToken, nonce);
+                //var tokenClaims = ValidateToken(response.IdentityToken, nonce);
                 var claims = new List<Claim>();
 
                 if (!string.IsNullOrWhiteSpace(response.AccessToken))
@@ -101,7 +101,7 @@ namespace MvcCodeFlowClientManual.Controllers
 
             var parameters = new TokenValidationParameters
             {
-                ValidAudience = "codeclient",
+                ValidAudience = "f6c58dfc-ebcc-41eb-b80e-e40e264b5101",
                 ValidIssuer = Constants.BaseAddress,
                 IssuerSigningToken = new X509SecurityToken(cert)
             };

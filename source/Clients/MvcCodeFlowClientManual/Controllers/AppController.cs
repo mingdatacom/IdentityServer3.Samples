@@ -1,5 +1,6 @@
 ﻿using IdentityModel;
 using IdentityModel.Client;
+using Microsoft.Owin.Logging;
 using Newtonsoft.Json.Linq;
 using Sample;
 using System;
@@ -28,9 +29,9 @@ namespace MvcCodeFlowClientManual.Controllers
             var client = new HttpClient();
             client.SetBearerToken(principal.FindFirst("access_token").Value);
 
-            var result = await client.GetStringAsync(Constants.AspNetWebApiSampleApi + "identity");
+            var result = await client.GetStringAsync(Constants.AspNetWebApiSampleApi + "userinfo");
 
-            return View(JArray.Parse(result));
+            return View(JObject.Parse(result));
         }
 
         public async Task<ActionResult> RefreshToken()
