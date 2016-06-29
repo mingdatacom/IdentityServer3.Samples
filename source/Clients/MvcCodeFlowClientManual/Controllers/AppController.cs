@@ -38,8 +38,8 @@ namespace MvcCodeFlowClientManual.Controllers
         {
             var client = new TokenClient(
                 Constants.TokenEndpoint,
-                "codeclient",
-                "secret");
+                "f6c58dfc-ebcc-41eb-b80e-e40e264b5101",
+                "Jg-pqeHSnb6x_9GlYKMz1yXk5Z8M5__GP0QZXH8NnatikAzucQ-euEoJ3r_cbkMc9isUztX2Yri29-KNmxHveQ");
 
             var principal = User as ClaimsPrincipal;
             var refreshToken = principal.FindFirst("refresh_token").Value;
@@ -54,7 +54,7 @@ namespace MvcCodeFlowClientManual.Controllers
         {
             var accessToken = (User as ClaimsPrincipal).FindFirst("access_token").Value;
             var client = new HttpClient();
-            client.SetBasicAuthentication("codeclient", "secret");
+            client.SetBasicAuthentication("f6c58dfc-ebcc-41eb-b80e-e40e264b5101", "Jg-pqeHSnb6x_9GlYKMz1yXk5Z8M5__GP0QZXH8NnatikAzucQ-euEoJ3r_cbkMc9isUztX2Yri29-KNmxHveQ");
 
             var postBody = new Dictionary<string, string>
             {
@@ -71,7 +71,7 @@ namespace MvcCodeFlowClientManual.Controllers
         {
             var refreshToken = (User as ClaimsPrincipal).FindFirst("refresh_token").Value;
             var client = new HttpClient();
-            client.SetBasicAuthentication("codeclient", "secret");
+            client.SetBasicAuthentication("f6c58dfc-ebcc-41eb-b80e-e40e264b5101", "Jg-pqeHSnb6x_9GlYKMz1yXk5Z8M5__GP0QZXH8NnatikAzucQ-euEoJ3r_cbkMc9isUztX2Yri29-KNmxHveQ");
 
             var postBody = new Dictionary<string, string>
             {
